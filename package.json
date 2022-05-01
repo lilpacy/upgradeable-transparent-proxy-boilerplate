@@ -1,0 +1,68 @@
+{
+  "name": "erc1155-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "yarn lint-staged",
+    "lint:eslint": "eslint . --ext .ts,.js --fix",
+    "lint:solhint": "npx solhint --fix --max-warnings 0  contracts/*.sol",
+    "lint:format": "prettier --write '**/*.{sol,ts,js,json,md,yml}'",
+    "prepare": "husky install",
+    "ipfs:add": "ipfs add metadata/mymetadata.json",
+    "ipfs:cat": "ipfs cat /ipfs/QmdhcMjEELiEX1PqcUwAi4sQSJV6DExw27vRgfeN6hZasA",
+    "ipfs:open": "open https://ipfs.io/ipfs/QmdhcMjEELiEX1PqcUwAi4sQSJV6DExw27vRgfeN6hZasA",
+    "deploy:mumbai": "npx hardhat run scripts/deployMyERC1155.ts --network mumbai",
+    "verify:mumbai": "npx hardhat verify --contract contracts/MyERC1155.sol:MyERC1155 0xE2BcA3f8784Ba89749d812ce38f275871c1d55AD 'ipfs://QmdhcMjEELiEX1PqcUwAi4sQSJV6DExw27vRgfeN6hZasA' 'MyERC1155' 'NFT' --network mumbai"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --cache --fix",
+    "**/*.{sol,ts,js,json,md,yml}": [
+      "prettier --write"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.1",
+    "aws-kms-ethers-signer": "^0.0.3",
+    "aws-kms-provider": "^0.4.3",
+    "hardhat": "^2.8.0"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@nomiclabs/hardhat-etherscan": "^2.1.3",
+    "@nomiclabs/hardhat-waffle": "^2.0.0",
+    "@typechain/ethers-v5": "^7.0.1",
+    "@typechain/hardhat": "^2.3.0",
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^12.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "chai": "^4.2.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "ethereum-waffle": "^3.0.0",
+    "ethers": "^5.0.0",
+    "hardhat-gas-reporter": "^1.0.4",
+    "hardhat-prettier": "^0.0.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.5.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "solhint": "^3.3.6",
+    "solidity-coverage": "^0.7.16",
+    "ts-node": "^10.1.0",
+    "typechain": "^5.1.2",
+    "typescript": "^4.5.2"
+  }
+}
