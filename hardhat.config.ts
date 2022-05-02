@@ -7,6 +7,7 @@ import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
 import "hardhat-prettier";
+import "@openzeppelin/hardhat-upgrades";
 
 dotenv.config();
 
@@ -24,7 +25,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 // Go to https://hardhat.org/config/ to learn more
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.10",
+  solidity: "0.8.12",
   networks: {
     mainnet: {
       url: process.env.MAINNET_URL || "",
