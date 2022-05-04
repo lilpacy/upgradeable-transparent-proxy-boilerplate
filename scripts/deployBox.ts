@@ -1,9 +1,12 @@
 import { ethers, upgrades } from "hardhat";
+import { kmsSigner } from "../common";
 
 async function main() {
-  const Box = await ethers.getContractFactory("Box");
+  const signer = kmsSigner();
+  const Box = await ethers.getContractFactory("Box", signer);
   console.log("Deploying Box...");
   const box = await upgrades.deployProxy(Box, [42], { initializer: "store" });
+  await box.deployed();
 
   console.log(box.address, " box(proxy) address");
   console.log(
