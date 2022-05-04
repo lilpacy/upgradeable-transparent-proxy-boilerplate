@@ -14,7 +14,7 @@
     "ipfs:cat": "ipfs cat /ipfs/QmdhcMjEELiEX1PqcUwAi4sQSJV6DExw27vRgfeN6hZasA",
     "ipfs:open": "open https://ipfs.io/ipfs/QmdhcMjEELiEX1PqcUwAi4sQSJV6DExw27vRgfeN6hZasA",
     "deploy:mumbai": "npx hardhat run scripts/deployMyERC1155.ts --network mumbai",
-    "verify:mumbai": "npx hardhat verify --contract contracts/MyERC1155.sol:MyERC1155 0xE2BcA3f8784Ba89749d812ce38f275871c1d55AD 'ipfs://QmdhcMjEELiEX1PqcUwAi4sQSJV6DExw27vRgfeN6hZasA' 'MyERC1155' 'NFT' --network mumbai"
+    "verify:mumbai": "yarn hardhat verify --contract contracts/Box.sol:Box 0x550495F390b1135F205fD721fE2d541F15C2daa3 --network mumbai"
   },
   "lint-staged": {
     "**/*.{sol,ts,js,json,md,yml}": [
